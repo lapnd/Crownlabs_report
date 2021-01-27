@@ -14,11 +14,17 @@ def plot_cumulative_graph(outJson, image_name):
     df = pd.DataFrame({'dates':dates, 'values':values})
     #df['dates']  = [datetime.fromtimestamp(i) for i in df['dates']]
 
-    fig, ax = plt.subplots(figsize=(5,3))
+    fig, ax = plt.subplots(figsize=(7,3))
     formatter = mdates.DateFormatter("%d-%m-%Y")
     ax.xaxis.set_major_formatter(formatter)
     locator = mdates.WeekdayLocator(byweekday=MO)
     ax.xaxis.set_major_locator(locator)
+    ax.set_title(image_name.replace("_", " ").replace(".png", ""))
+    ax.set_xlabel('time')
+    ax.set_ylabel('unit')
+    plt.xticks(fontsize=5)
+    plt.yticks(fontsize=5)
+    plt.grid(True)
     
     ax.plot_date(df['dates'], df['values'])
     
@@ -44,11 +50,18 @@ def plot_cumulative_week_graph(outJson, image_name):
     df = pd.DataFrame({'dates':dates, 'values':values})
     #df['dates']  = [pd.to_datetime(i) for i in df['dates']]
   
-    fig, ax = plt.subplots(figsize=(5,3))
+    fig, ax = plt.subplots(figsize=(7,3))
     formatter = mdates.DateFormatter("%d-%m-%Y")
     ax.xaxis.set_major_formatter(formatter)
     locator = mdates.WeekdayLocator(byweekday=MO)
     ax.xaxis.set_major_locator(locator)
+    ax.set_title(image_name.replace("_", " ").replace(".png", ""))
+    ax.set_xlabel('time')
+    ax.set_ylabel('unit')
+    plt.xticks(fontsize=5)
+    plt.yticks(fontsize=5)
+    plt.grid(False)
+    
     ax.bar(df['dates'], df['values'])
 
     fig.savefig("../report/img/" + image_name)

@@ -6,8 +6,8 @@ from tqdm import tqdm
 
 def main():
     thanos_URL = "http://10.100.99.4:9090" 
-    start_date = datetime(2021, 1, 16)
-    end_date = datetime(2021, 1, 18)
+    start_date = datetime(2020, 11, 2)
+    end_date = datetime(2021, 1, 24)
 
     # collect data from thanos
     vm_creation_data = collect.collect_VM_creation_data(thanos_URL, start_date, end_date)
