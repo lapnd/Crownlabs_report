@@ -2,6 +2,37 @@ import json
 from datetime import datetime
 
 def process_VM_creation_data(jsonData):
+    startVMValue = int(jsonData['data']['result'][0]['values'][0][1])
+    vmCount = startVMValue
+    result = []
+
+    # Iterating through the json 
+    # list 
+    for i in jsonData['data']['result'][0]['values']: 
+        vmDiff = int(i[1]) - startVMValue
+
+        if vmDiff > 0:
+            vmCount += vmDiff
+
+        value = {
+            "timestamp": int(i[0]),
+            "value": vmCount
+        }
+
+        result.append(value)
+
+        startVMValue = int(i[1])
+
+    outJson = {
+        "results": result
+    }
+
+    with open('thanos_query_processed.json', 'w') as outfile:
+        json.dump(outJson, outfile)
+
+    return outJson
+
+def process_VM_access_data(jsonData):
     vmAccessCount = 1
     result = []
 
@@ -22,10 +53,5 @@ def process_VM_creation_data(jsonData):
         "results": result
     }
 
-    with open('VM_creation_data_processed.json', 'w') as outfile:
+    with open('VM_access_data_processed.json', 'w') as outfile:
         json.dump(outJson, outfile)
-
-    return outJson
-
-def process_VM_access_data(jsonData):
-    print("Hello world")
