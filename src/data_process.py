@@ -9,7 +9,7 @@ def process_VM_creation_data(jsonData):
 
     # Iterating through the json 
     # list 
-    with tqdm(total=len(jsonData['data']['result'][0]['values']), desc="Processing VM creation data: ") as pbar:
+    with tqdm(total=len(jsonData['data']['result'][0]['values']), desc="Processing VM creation data:", bar_format= '{l_bar}{bar}') as pbar:
         for i in jsonData['data']['result'][0]['values']: 
             vmDiff = int(i[1]) - startVMValue
 
@@ -42,7 +42,7 @@ def process_VM_access_data(jsonData):
 
     # Iterating through the json 
     # list 
-    with tqdm(total=len(jsonData['data']['result'][0]['values']), desc="Processing VM access data:   ") as pbar:
+    with tqdm(total=len(jsonData['data']['result'][0]['values']), desc="Processing VM access data:", bar_format= '{l_bar}{bar}') as pbar:
         for i in range(1, len(jsonData['data']['result'][0]['values'])): 
             if jsonData['data']['result'][0]['values'][i][1] != jsonData['data']['result'][0]['values'][i-1][1] :
                 vmAccessCount += 1

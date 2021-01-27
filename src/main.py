@@ -6,8 +6,8 @@ from tqdm import tqdm
 
 def main():
     thanos_URL = "http://10.100.99.4:9090" 
-    start_date = datetime(2021, 1, 15)
-    end_date = datetime(2021, 1, 17)
+    start_date = datetime(2021, 1, 16)
+    end_date = datetime(2021, 1, 18)
 
     # collect data from thanos
     vm_creation_data = collect.collect_VM_creation_data(thanos_URL, start_date, end_date)
@@ -18,7 +18,7 @@ def main():
     vm_access_data_processed = process.process_VM_access_data(vm_access_data)
     
     # plot processed data
-    with tqdm(total=4, desc="Plot data: ") as pbar:
+    with tqdm(total=4, desc="Plot data:", bar_format= '{l_bar}{bar}') as pbar:
         plot.plot_cumulative_graph(vm_creation_data_processed, "VM_creation_comulative.png")
         pbar.update(1)
         plot.plot_cumulative_week_graph(vm_creation_data_processed, "VM_creation_cumulative_week.png")
