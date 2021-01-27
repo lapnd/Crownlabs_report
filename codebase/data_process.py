@@ -26,3 +26,6 @@ def process_VM_creation_data(jsonData):
         json.dump(outJson, outfile)
 
     return outJson
+
+def process_VM_access_data(jsonData):
+    print("Hello world")
