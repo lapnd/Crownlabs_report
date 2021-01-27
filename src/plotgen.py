@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-def plot_cumulative_graph(outJson):
+def plot_cumulative_graph(outJson, image_name):
 
     dates = [datetime.fromtimestamp(i['timestamp']) for i in outJson["results"]]
     dates = mdates.date2num(dates)
@@ -18,9 +18,9 @@ def plot_cumulative_graph(outJson):
     plt.xticks(rotation=30)
     #plt.axis([0,15,0,3500])
 
-    fig.savefig('number_of_vm_access_over_time.png', dpi=300)
+    fig.savefig("../report/img/" + image_name, dpi=300)
 
-def plot_cumulative_week_graph(outJson):
+def plot_cumulative_week_graph(outJson, image_name):
 
     startTime = datetime.fromtimestamp(outJson['results'][0]['timestamp'])
     firstVMCount = outJson['results'][0]['value']
@@ -42,5 +42,4 @@ def plot_cumulative_week_graph(outJson):
     plt.xticks(rotation=30)
     #plt.axis([0,15,0,700])
 
-    fig.show()
-    fig.savefig('number_of_vm_access_every_week.png', dpi=300)
+    fig.savefig("../report/img/" + image_name, dpi=300)
