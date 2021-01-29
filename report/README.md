@@ -17,15 +17,15 @@ In this (almost) three month period the total number of created VMs is **4642** 
 
 For a better visualization in the following graph the number of created VMs are aggregated by week:
 
-![alt text](https://github.com/SteGala/Crownlabs_report/blob/main/report/img/VM_creation_comulative_week.png?raw=true)
+![alt text](https://github.com/SteGala/Crownlabs_report/blob/main/report/img/VM_creation_cumulative_week.png?raw=true)
 
 ## Number of VM access
 In this (almost) three month period the total number of access to the VMs is **14946** as we can see in the following graph:
 
-![alt text](https://github.com/SteGala/Crownlabs_report/blob/main/report/img/VM_access_comulative.png?raw=true)
+![alt text](https://github.com/SteGala/Crownlabs_report/blob/main/report/img/VM_access_cumulative.png?raw=true)
 
 For a better visualization in the following graph the number of VM access are aggregated by week:
 
-![alt text](https://github.com/SteGala/Crownlabs_report/blob/main/report/img/VM_access_comulative_week.png?raw=true)
+![alt text](https://github.com/SteGala/Crownlabs_report/blob/main/report/img/VM_access_cumulative_week.png?raw=true)
 
 ## Average number of access for VM
