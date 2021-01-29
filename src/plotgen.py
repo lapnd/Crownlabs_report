@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.dates import MO, TU, WE, TH, FR, SA, SU
 
-def plot_cumulative_graph(outJson, image_name):
+def plot_cumulative_graph(outJson, image_name, x_label, y_label):
 
     dates = [datetime.fromtimestamp(i['timestamp']) for i in outJson["results"]]
     #dates = mdates.date2num(dates)
@@ -20,8 +20,8 @@ def plot_cumulative_graph(outJson, image_name):
     locator = mdates.WeekdayLocator(byweekday=MO)
     ax.xaxis.set_major_locator(locator)
     ax.set_title(image_name.replace("_", " ").replace(".png", ""))
-    ax.set_xlabel('time')
-    ax.set_ylabel('unit')
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
     plt.xticks(fontsize=5)
     plt.yticks(fontsize=5)
     plt.grid(True)
@@ -30,7 +30,7 @@ def plot_cumulative_graph(outJson, image_name):
     
     fig.savefig("../report/img/" + image_name)
 
-def plot_cumulative_week_graph(outJson, image_name):
+def plot_cumulative_week_graph(outJson, image_name, x_label, y_label):
 
     startTime = datetime.fromtimestamp(outJson['results'][0]['timestamp'])
     firstVMCount = outJson['results'][0]['value']
@@ -56,8 +56,8 @@ def plot_cumulative_week_graph(outJson, image_name):
     locator = mdates.WeekdayLocator(byweekday=MO)
     ax.xaxis.set_major_locator(locator)
     ax.set_title(image_name.replace("_", " ").replace(".png", ""))
-    ax.set_xlabel('time')
-    ax.set_ylabel('unit')
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
     plt.xticks(fontsize=5)
     plt.yticks(fontsize=5)
     plt.grid(False)
